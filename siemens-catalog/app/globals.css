@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  direction: rtl;
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* هدر */
+.site-header {
+  background: #0b3d5c;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+  font-size: 15px;
+}
+
+.main-nav a:hover {
+  color: #7dd3fc;
+}
+
+.btn-quote {
+  background: #f59e0b;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* هیرو */
+.hero {
+  background: linear-gradient(135deg, #0b3d5c, #1e6f9f);
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-primary {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.btn-secondary {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* فوتر */
+.site-footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  margin-top: 64px;
+  padding-top: 40px;
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-bottom: 32px;
+}
+
+.footer-inner h3,
+.footer-inner h4 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-inner ul {
+  list-style: none;
+  line-height: 2;
+}
+
+.copyright {
+  border-top: 1px solid #1e293b;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 0;
+  }
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
