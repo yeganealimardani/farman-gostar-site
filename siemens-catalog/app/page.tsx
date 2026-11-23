@@ -1,26 +1,24 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { getAllProducts } from '@/data';
+import ProductCard from '@/components/ProductCard';
 
-export default function Home() {
+export default function ProductsPage() {
+  const products = getAllProducts();
+
   return (
-    <>
-      <Header />
-      <main>
-        <section className="hero">
-          <div className="container">
-            <h1>تجهیزات اتوماسیون صنعتی زیمنس</h1>
-            <p>
-              تأمین انواع PLC، HMI، درایو، اینورتر و تجهیزات اتوماسیون صنعتی
-              با ضمانت اصالت کالا و مشاورهٔ فنی تخصصی.
-            </p>
-            <div className="hero-actions">
-              <a href="/products" className="btn-primary">مشاهدهٔ محصولات</a>
-              <a href="/contact" className="btn-secondary">استعلام قیمت</a>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+    <div className="container" style={{ padding: '2rem 1rem' }}>
+      <h1 style={{ marginBottom: '2rem', fontSize: '1.8rem' }}>همه محصولات</h1>
+      
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '1.5rem',
+        }}
+      >
+        {products.map((product) => (
+          <ProductCard key={product.slug} product={product} />
+        ))}
+      </div>
+    </div>
   );
 }
