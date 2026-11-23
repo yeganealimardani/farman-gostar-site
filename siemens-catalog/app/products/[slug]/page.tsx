@@ -4,9 +4,11 @@ import ProductCard from '@/components/ProductCard';
 import { categories } from '@/data/categories';
 import { getAllSlugs, getProductBySlug, getRelated } from '@/data';
 
+
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
+
 
 export default async function ProductPage({
   params,
@@ -16,10 +18,13 @@ export default async function ProductPage({
   const { slug } = await params;
   const product = getProductBySlug(slug);
 
+
   if (!product) notFound();
+
 
   const category = categories.find((item) => item.slug === product.category);
   const related = getRelated(product.slug);
+
 
   return (
     <div className="container" style={{ padding: '2rem 1rem 3rem' }}>
@@ -43,6 +48,7 @@ export default async function ProductPage({
         <span>{product.name}</span>
       </nav>
 
+
       <div className="product-detail">
         <div className="product-detail-image">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -52,6 +58,7 @@ export default async function ProductPage({
           />
         </div>
 
+
         <div>
           <div
             className="ltr"
@@ -60,9 +67,11 @@ export default async function ProductPage({
             {product.brand}
           </div>
 
+
           <h1 style={{ fontSize: '1.6rem', margin: '0.4rem 0' }}>
             {product.name}
           </h1>
+
 
           <div
             className="ltr"
@@ -71,9 +80,11 @@ export default async function ProductPage({
             {product.nameEn}
           </div>
 
+
           <p style={{ color: 'var(--muted)', lineHeight: 2 }}>
             {product.shortDesc}
           </p>
+
 
           <div className="product-meta">
             <div>
@@ -92,6 +103,7 @@ export default async function ProductPage({
             )}
           </div>
 
+
           <div className="product-buy">
             <div>
               {product.price === null ? (
@@ -103,16 +115,41 @@ export default async function ProductPage({
               )}
             </div>
 
-            <Link href="/contact" className="btn">
-              استعلام قیمت
-            </Link>
+            <div
+              style={{
+                display: 'flex',
+                gap: '0.5rem',
+                flexWrap: 'wrap',
+              }}
+            >
+              <Link
+                href={`/contact?product=${product.slug}`}
+                className="btn"
+              >
+                استعلام قیمت
+              </Link>
+
+              {product.datasheetUrl && (
+                <a
+                  href={product.datasheetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                >
+                  دانلود دیتاشیت
+                </a>
+              )}
+            </div>
           </div>
+
         </div>
       </div>
+
 
       {product.specs.length > 0 && (
         <section style={{ marginTop: '2.5rem' }}>
           <h2 style={{ fontSize: '1.2rem' }}>مشخصات فنی</h2>
+
 
           <table className="spec-table">
             <tbody>
@@ -130,9 +167,11 @@ export default async function ProductPage({
         </section>
       )}
 
+
       {related.length > 0 && (
         <section style={{ marginTop: '2.5rem' }}>
           <h2 style={{ fontSize: '1.2rem' }}>محصولات مرتبط</h2>
+
 
           <div className="product-grid">
             {related.map((item) => (
@@ -144,3 +183,4 @@ export default async function ProductPage({
     </div>
   );
 }
+

@@ -260,3 +260,13 @@ img {
     grid-template-columns: 1fr;
   }
 }
+.btn-outline {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.btn-outline:hover {
+  background: var(--brand);
+  color: #fff;
+}
