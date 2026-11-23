@@ -115,33 +115,11 @@ export default async function ProductPage({
               )}
             </div>
 
-            <div
-              style={{
-                display: 'flex',
-                gap: '0.5rem',
-                flexWrap: 'wrap',
-              }}
-            >
-              <Link
-                href={`/contact?product=${product.slug}`}
-                className="btn"
-              >
-                استعلام قیمت
-              </Link>
 
-              {product.datasheetUrl && (
-                <a
-                  href={product.datasheetUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline"
-                >
-                  دانلود دیتاشیت
-                </a>
-              )}
-            </div>
+            <Link href="/contact" className="btn">
+              استعلام قیمت
+            </Link>
           </div>
-
         </div>
       </div>
 
